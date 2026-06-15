@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclusão Digital para Idosos | Conexão e Segurança</title>
+    <style>
+        /* Variáveis de Cores (Paleta Institucional) */
+        :root {
+            --azul-marinho: #0b2545;
+            --azul-escuro-hover: #134074;
+            --verde-principal: #2a9d8f;
+            --verde-hover: #264653;
+            --branco: #ffffff;
+            --cinza-fundo: #f8f9fa;
+            --texto-escuro: #2b2d42;
+            --texto-claro: #f4f4f9;
+        }
+
+        /* Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--texto-escuro);
+            background-color: var(--branco);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Cabeçalho / Nav */
+        header {
+            background-color: var(--azul-marinho);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--branco);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--verde-principal);
+        }
+
+        .btn-contato-nav {
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-contato-nav:hover {
+            background-color: #218377;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-marinho) 0%, var(--azul-escuro-hover) 100%);
+            color: var(--branco);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #e0e1dd;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            font-size: 18px;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #218377;
+            transform: translateY(-2px);
+        }
+
+        /* Seções Comuns */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--azul-marinho);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--verde-principal);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Metodologia (Cards) */
+        .metodologia {
+            background-color: var(--cinza-fundo);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--branco);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--azul-marinho);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--azul-marinho);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* Segurança (Regra de Ouro) */
+        .seguranca {
+            background-color: var(--branco);
+        }
+
+        .seguranca-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .seguranca-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .regra-ouro {
+            background-color: #e8f5e9;
+            border-left: 6px solid var(--verde-principal);
+            padding: 25px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+
+        .regra-ouro h4 {
+            color: #1b5e20;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Benefícios Públicos */
+        .beneficios {
+            background-color: var(--cinza-fundo);
+        }
+
+        .beneficios-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .beneficios-split {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+        }
+
+        .bloco-beneficio {
+            background-color: var(--branco);
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .bloco-beneficio h3 {
+            color: var(--azul-marinho);
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .bloco-beneficio ul {
+            list-style-position: inside;
+        }
+
+        .bloco-beneficio li {
+            margin-bottom: 12px;
+            color: var(--texto-escuro);
+        }
+
+        /* Formulário de Contato */
+        .contato {
+            background-color: var(--azul-marinho);
+            color: var(--branco);
+        }
+
+        .contato .section-title {
+            color: var(--branco);
+        }
+
+        .form-contato {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--branco);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--texto-escuro);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--azul-marinho);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--azul-marinho);
+        }
+
+        .btn-enviar {
+            display: width;
+            width: 100%;
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-enviar:hover {
+            background-color: #218377;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #05101e;
+            color: #8ecae6;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Inclusão<span>Digital</span></div>
+            <a href="#contato" class="btn-contato-nav">Fale Conosco</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Inclusão Digital Prática que Traz Tranquilidade e Autonomia</h1>
+            <p>Conectamos residentes e familiares através de um método focado em segurança, repetição e materiais didáticos físicos adaptados para a terceira idade.</p>
+            <a href="#contato" class="cta-button">Agendar um Diagnóstico Gratuito</a>
+        </div>
+    </section>
+
+    <section id="metodologia" class="metodologia">
+        <div class="container">
+            <h2 class="section-title">Nossa Metodologia</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>1. Diagnóstico Individual</h3>
+                    <p>Avaliamos individualmente os aspectos de visão, coordenação motora fina e o nível de familiaridade atual com o smartphone para traçar um plano sob medida.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Material Físico Exclusivo</h3>
+                    <p>Desenvolvemos Guias de Bolso plastificados e higienizáveis com letras ampliadas e fluxogramas lógicos altamente visuais para funções como WhatsApp e Spotify.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Sessões Práticas</h3>
+                    <p>Encontros semanais de 45 a 60 minutos focados na repetição prática diretamente no aparelho do idoso, consolidando uma função por vez com total paciência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seguranca">
+        <div class="container seguranca-container">
+            <div class="seguranca-texto">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 25px; justify-content: flex-start;">Proteção Ativa contra Golpes</h2>
+                <p>Nossa prioridade máxima é garantir que a autonomia digital não venha acompanhada de riscos. Ensinamos ativamente a identificar comportamentos suspeitos e a bloquear números desconhecidos no dia a dia.</p>
+                <div class="regra-ouro">
+                    <h4>A Regra de Ouro</h4>
+                    <p><strong>"Na dúvida, não clique e espere a aula da semana que vem."</strong> Desenvolvemos esse hábito para criar uma barreira psicológica intransponível para golpistas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="beneficios">
+        <div class="container">
+            <h2 class="section-title">Valor para Todos</h2>
+            <div class="beneficios-split">
+                <div class="bloco-beneficio">
+                    <h3>Para os Residenciais e Asilos</h3>
+                    <ul>
+                        <li>Diferencial competitivo de alto valor para novos familiares.</li>
+                        <li>Estímulo cognitivo ativo e socialização para os residentes.</li>
+                        <li>Relatórios periódicos de evolução dos participantes.</li>
+                    </ul>
+                </div>
+                <div class="bloco-beneficio">
+                    <h3>Para as Famílias</h3>
+                    <ul>
+                        <li>Aproximação real através de fotos, áudios e chamadas de vídeo.</li>
+                        <li>Tranquilidade sabendo que seu familiar aprendeu a navegar protegido.</li>
+                        <li>Redução do isolamento social com independência digital.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">Traga essa Transformação para a sua Realidade</h2>
+            <form class="form-contato" action="#" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="perfil">Eu sou:</label>
+                    <select id="perfil" name="perfil" required>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="diretor">Diretor / Gestor de Residencial</option>
+                        <option value="familia">Familiar (Filho, Neto, etc.)</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contato-input">Telefone / WhatsApp</label>
+                    <input type="tel" id="contato-input" name="contato-input" required placeholder="(00) 00000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Como podemos ajudar?</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos um pouco sobre a sua necessidade..."></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Solicitar Informações</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Programa de Inclusão Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
